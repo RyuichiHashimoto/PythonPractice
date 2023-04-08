@@ -35,4 +35,4 @@ cd /usr/local/bin && ln -s /opt/poetry/bin/poetry  && \
 poetry config virtualenvs.create false
 
 #CMD 
-
+RUN apt install vim
