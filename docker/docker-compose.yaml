@@ -11,6 +11,9 @@ services:
 
     environment:
       HOME: "/home/work/"
+      AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
+      AWS_SCECRET_ACCESS_KEY: ${AWS_SCECRET_ACCESS_KEY}
+
 
     user: 1000:1000
 
@@ -19,7 +22,9 @@ services:
     container_name: PythonPractice
 
     #command: poetry run jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.notebook_dir='/home/work'
-    command: sleep 4000
+    command: sleep 400000
+
+    
 
 
 
