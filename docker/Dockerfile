@@ -32,7 +32,8 @@ mkdir /opt/poetry/bin -p && \
 apt install python3.9-distutils -y && \
 curl -sSL https://install.python-poetry.org | python3.9 -  && \
 cd /usr/local/bin && ln -s /opt/poetry/bin/poetry  && \
-poetry config virtualenvs.create false
+poetry config virtualenvs.in-project true
+#poetry config virtualenvs.create true
 
-#CMD 
-RUN apt install vim
+#CMD
+RUN apt install vim -y
