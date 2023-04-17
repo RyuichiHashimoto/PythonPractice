@@ -4,3 +4,4 @@
 .vscode-server/
 .gnupg/
 .gitconfig
+docker/.env
