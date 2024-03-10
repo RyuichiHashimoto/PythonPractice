@@ -5,3 +5,5 @@
 .gnupg/
 .gitconfig
 docker/.env
+.ssh/
+mysql_server/
