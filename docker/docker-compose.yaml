@@ -19,10 +19,30 @@ services:
 
     restart: always
     working_dir: /home/work
-    container_name: PythonPractice
+    container_name: mysql-client
 
-    #command: poetry run jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token='' --NotebookApp.notebook_dir='/home/work'
     command: sleep 400000
+
+  mysql:
+    image: mysql:8.0.1
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sample-db
+      MYSQL_USER: hashimoto
+      MYSQL_PASSWORD: hashimoto
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ../mysql_server/db/data:/var/lib/mysql
+    - ../mysql_server/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ../mysql_server/db/sql:/docker-entrypoint-initdb.d
+    ports:
+    - 3306:3306
+
+    
+
+    # command: sleep 400000
 
     
 

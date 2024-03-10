@@ -6,9 +6,10 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.9.16"
+python = "3.11.8"
 boto3 = "^1.26.114"
 backoff = "^2.2.1"
+peewee = "^3.17.1"
 
 
 [tool.poetry.group.dev.dependencies]
