@@ -1,37 +1,27 @@
 @startuml
 
-skinparam packageStyle rectangle
 
-package "階層A" {
-    package "パッケージA1" {
+package "common_libs" {
+    package "commoon_lib1" {
     }
-    package "パッケージA2" {
-    }
-    package "パッケージA3" {
-    }
-    package "パッケージA4" {
+    package "commoon_lib2" {
     }
     
-    パッケージA1 -[hidden]right- パッケージA2
-    パッケージA2 -[hidden]right- パッケージA3
-    パッケージA3 -[hidden]right- パッケージA4
+    commoon_lib1 -[hidden]right- commoon_lib2
 }
 
-package "階層B" {
-    package "パッケージB1" {
+package "service_lib" {
+    package "service_lib1" {
     }
-    package "パッケージB2" {
+    package "service_lib2" {
     }
-    package "パッケージB3" {
+    package "service_lib3" {
     }
     
-    パッケージB1 -[hidden]right- パッケージB2
-    パッケージB2 -[hidden]right- パッケージB3
+    service_lib1 -[hidden]right- service_lib2
+    service_lib2 -[hidden]right- service_lib3    
 }
 
-"パッケージA1" --> "パッケージB1"
-"パッケージA2" --> "パッケージB2"
-"パッケージA3" --> "パッケージB3"
-"パッケージA4" --> "パッケージB1"
+"common_libs" --center-> "service_lib"
 
 @enduml
