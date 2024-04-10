@@ -1,0 +1,37 @@
+@startuml
+
+skinparam packageStyle rectangle
+
+package "階層A" {
+    package "パッケージA1" {
+    }
+    package "パッケージA2" {
+    }
+    package "パッケージA3" {
+    }
+    package "パッケージA4" {
+    }
+    
+    パッケージA1 -[hidden]right- パッケージA2
+    パッケージA2 -[hidden]right- パッケージA3
+    パッケージA3 -[hidden]right- パッケージA4
+}
+
+package "階層B" {
+    package "パッケージB1" {
+    }
+    package "パッケージB2" {
+    }
+    package "パッケージB3" {
+    }
+    
+    パッケージB1 -[hidden]right- パッケージB2
+    パッケージB2 -[hidden]right- パッケージB3
+}
+
+"パッケージA1" --> "パッケージB1"
+"パッケージA2" --> "パッケージB2"
+"パッケージA3" --> "パッケージB3"
+"パッケージA4" --> "パッケージB1"
+
+@enduml
