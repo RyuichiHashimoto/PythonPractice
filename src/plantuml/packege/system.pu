@@ -22,6 +22,6 @@ package "service_lib" {
     service_lib2 -[hidden]right- service_lib3    
 }
 
-"common_libs" --center-> "service_lib"
+"common_libs" --> "service_lib"
 
 @enduml
