@@ -36,7 +36,7 @@ poetry config virtualenvs.in-project true
 #poetry config virtualenvs.create true
 
 #CMD
-RUN apt install vim net-tools -y
+RUN apt install vim net-tools sqlite3 build-essential graphviz default-jre -y
 ENV SHELL=/bin/bash
 
 
