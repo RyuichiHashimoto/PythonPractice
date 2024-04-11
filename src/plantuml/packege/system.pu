@@ -1,5 +1,6 @@
 @startuml
 
+skinparam packageStyle rectangle
 
 package "common_libs" {
     package "commoon_lib1" {
@@ -11,17 +12,54 @@ package "common_libs" {
 }
 
 package "service_lib" {
+    
     package "service_lib1" {
     }
-    package "service_lib2" {
-    }
-    package "service_lib3" {
+    
+    package "service_lib1-2" {
     }
     
+    package "service_lib1-3" {
+    }
+    
+    package "service_lib2" {
+    }
+
+    package "service_lib3" {
+    }
     service_lib1 -[hidden]right- service_lib2
     service_lib2 -[hidden]right- service_lib3    
 }
 
-"common_libs" --> "service_lib"
+package "service_lib" {
+    
+    package "service_lib1" {
+    }
+    
+    package "service_lib1-2" {
+    }
+    
+    package "service_lib1-3" {
+    }
+    
+    package "service_lib2" {
+    }
+
+    package "service_lib3" {
+    }
+    service_lib1 -[hidden]right- service_lib2
+    service_lib2 -[hidden]right- service_lib3    
+}
+skinparam linetype ortho
+commoon_lib1 --> "service_lib1"
+commoon_lib2 --> "service_lib1"
+commoon_lib1 --> "service_lib2"
+commoon_lib2 --> "service_lib2"
+commoon_lib1 --> "service_lib3"
+commoon_lib2 --> "service_lib3"
+
+service_lib1 -down-> "service_lib1-2"
+service_lib1 -down-> "service_lib1-3"
+
 
 @enduml
