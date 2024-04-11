@@ -1,0 +1,23 @@
+@startuml
+
+queue "input queue" as inputqueue
+participant "Service" as service
+database "Mysql" as mysql
+database "Sqlite" as sqlite
+database "Storage" as storage_
+queue "output queue" as outputqueue
+
+
+inputqueue -> service: input queue message
+service -> mysql: query configuration data
+mysql -> service: 
+
+service -> sqlite: query configuration data
+sqlite -> service
+
+service -> storage_: get data
+storage_ -> service
+
+service -> service: evaluation
+
+service -> outputqueue: output queue message 
