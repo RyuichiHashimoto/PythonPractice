@@ -1,0 +1,45 @@
+@startuml
+
+start
+
+:ログファイルを分類する。;
+
+package ログ種類1 {
+fork
+    :サービス1;
+    if (サービス1向けのデータがあるか?) then (yes)
+        :サービス1を実施する;
+    else (no)
+    endif
+fork again    
+    :サービス2;
+    if (サービス2向けのデータがあるか?) then (yes)
+        :サービス2を実施する;
+    else (no)
+    endif
+fork again
+    :サービス3;
+    if (サービス3向けのデータがあるか?) then (yes)
+        :サービス3を実施する;
+    else (no)
+    endif
+fork again
+    :サービス4;
+    if (サービス4向けのデータがあるか?) then (yes)
+        :サービス4を実施する;
+    else (no)
+    endif
+fork end
+}
+:ログ種類１の結果をログ種類２に追加する。;
+package ログ種類２ {
+    :ログ種類２に対して何かしらをする;
+    :ログ種類２の解析をする;
+}
+
+
+:結果をクラウドにアップロードする;
+
+stop
+
+@enduml
